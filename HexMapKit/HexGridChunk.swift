@@ -180,7 +180,7 @@ class HexGridChunk {
 
         if cell.hasRiverThroughEdge(direction.next()) {
             if cell.hasRiverThroughEdge(direction.previous()) {
-                c += HexMetrics.getSolidEdgeMiddle(direction) * (HexMetrics.innerToOuter * 0.5);
+                c += HexMetrics.getSolidEdgeMiddle(direction) * (HexMetrics.innerToOuter * 0.5)
             } else if cell.hasRiverThroughEdge(direction.previous2()) {
                 c += HexMetrics.getFirstSolidCorner(direction) * 0.25
             }

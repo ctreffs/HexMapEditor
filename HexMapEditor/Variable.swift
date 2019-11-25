@@ -9,9 +9,9 @@
 import AppKit
 
 public class Variable<T> {
-    
+
     var value: T
-    
+
     init(_ value: T) {
         self.value = value
     }
@@ -20,17 +20,17 @@ public class Variable<T> {
 public class MenuButton<T> {
     let values: [T]
     let control: NSPopUpButton
-    
-    var variable: Variable<T>? = nil
-    
+
+    var variable: Variable<T>?
+
     init(values: [T], control: NSPopUpButton) {
         self.values = values
         self.control = control
-        
+
         control.target = self
         control.action = #selector(MenuButton.handle)
     }
-    
+
     @objc func handle() {
         self.variable?.value = self.values[self.control.indexOfSelectedItem]
     }
@@ -38,16 +38,16 @@ public class MenuButton<T> {
 
 public class CheckButton {
     let control: NSButton
-    
-    var variable: Variable<Bool>? = nil
-    
+
+    var variable: Variable<Bool>?
+
     init(control: NSButton) {
         self.control = control
-        
+
         control.target = self
         control.action = #selector(CheckButton.handle)
     }
-    
+
     @objc func handle() {
         self.variable?.value = self.control.state == .on
     }
@@ -55,16 +55,16 @@ public class CheckButton {
 
 public class Slider {
     let control: NSSlider
-    
-    var variable: Variable<Int>? = nil
-    
+
+    var variable: Variable<Int>?
+
     init(control: NSSlider) {
         self.control = control
-        
+
         control.target = self
         control.action = #selector(Slider.handle)
     }
-    
+
     @objc func handle() {
         self.variable?.value = self.control.integerValue
     }
