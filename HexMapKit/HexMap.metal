@@ -81,9 +81,9 @@ fragment half4 terrainFragment(TerrainVertexOutput in [[stage_in]],
     gridUV.x *= 1.0 / (4.0 * 8.66025404);
     gridUV.y *= 1.0 / (2.0 * 15.0);
     float4 grid = gridTexture.sample(sampler2d, gridUV);
-
+    
     // lighting
-
+    
     float4 diffuseColor = c1 * in.color[0] + c2 * in.color[1] + c3 * in.color[2];
     float4 lightDiffuse(1.0, 1.0, 1.0, 1.0);
     
